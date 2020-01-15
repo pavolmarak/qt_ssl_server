@@ -2,6 +2,9 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QTcpSocket>
+#include <QTableWidget>
+#include <QTableWidgetItem>
 #include "sslserver.h"
 
 QT_BEGIN_NAMESPACE
@@ -18,8 +21,9 @@ public:
 
 private slots:
     void on_button_start_server_clicked();
-
     void on_button_stop_server_clicked();
+    void appendToLogSlot(const QString&);
+    void updateClientListSlot(const QVector<QTcpSocket*>&);
 
 private:
     Ui::MainWindow *ui;
