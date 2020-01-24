@@ -18,12 +18,14 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    void startServer();
+    void stopServer();
 
 private slots:
     void on_button_start_server_clicked();
     void on_button_stop_server_clicked();
     void appendToLogSlot(const QString&);
-    void updateClientListSlot(const QVector<QTcpSocket*>&);
+    void updateClientListSlot(const QVector<QSslSocket*>&);
 
 private:
     Ui::MainWindow *ui;
